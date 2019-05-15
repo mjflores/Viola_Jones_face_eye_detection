@@ -1,7 +1,7 @@
 # OpenCv-face-detection
 
 Este programa es una modificación del código presentado en "Implementing Face Detection using Python and OpenCV"
-https://medium.com/analytics-vidhya/how-to-build-a-face-detection-model-in-python-8dc9cecadfe9
+ [AAA] (https://medium.com/analytics-vidhya/how-to-build-a-face-detection-model-in-python-8dc9cecadfe9
 
 #
  import cv2
@@ -18,7 +18,7 @@ https://medium.com/analytics-vidhya/how-to-build-a-face-detection-model-in-pytho
      txtfiles.append(file)
 
 #
- for ix in txtfiles:
+   for ix in txtfiles:
      img = cv2.imread(ix,cv2.IMREAD_COLOR)
      imgColor = img.copy()
      imgTest = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    
