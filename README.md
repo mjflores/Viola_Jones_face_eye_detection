@@ -1,22 +1,22 @@
 # OpenCv-face-detection
 
-Este programa es una modificación del código presentado en [Implementing Face Detection using Python and OpenCV](https://medium.com/analytics-vidhya/how-to-build-a-face-detection-model-in-python-8dc9cecadfe9)
+This program is a modification of the code presented in [Implementing Face Detection using Python and OpenCV](https://medium.com/analytics-vidhya/how-to-build-a-face-detection-model-in-python-8dc9cecadfe9)
 
-### Cargar librerias 
+### Load python libraries 
     import cv2
     import numpy as np
     import glob as gl
 
-### Cargar base de datos de rostros y ojos 
+### Load the databases of faces and eyes
     facecascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
-### Leer imagenes
+### Read images
     txtfiles = [] 
     for file in gl.glob("*.jpeg"):
         txtfiles.append(file)
 
-### Detectar rostros 
+### Detect faces and eyes
     for ix in txtfiles:
         img = cv2.imread(ix,cv2.IMREAD_COLOR)
         imgColor = img.copy()
@@ -30,7 +30,7 @@ Este programa es una modificación del código presentado en [Implementing Face 
            for (ex,ey,ew,eh) in eyes:
                cv2.rectangle(imgColor,(ex+x,ey+y),(ex+ew+x,ey+eh+y),(255,0,255),2)
 
-### Visualizar resultados
+### Display results
     cv2.imshow('Imagen',imgColor)
     if cv2.waitKey(1000) & 0xFF == 27:
         break
