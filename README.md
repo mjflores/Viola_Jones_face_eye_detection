@@ -4,9 +4,9 @@ Este programa es una modificación del código presentado en "Implementing Face 
 https://medium.com/analytics-vidhya/how-to-build-a-face-detection-model-in-python-8dc9cecadfe9
 
 #
-import cv2
-import numpy as np
-import glob as gl
+ import cv2
+ import numpy as np
+ import glob as gl
 
 facecascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
