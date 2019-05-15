@@ -12,25 +12,26 @@ Este programa es una modificación del código presentado en [Implementing Face 
     eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
 ## Leer imagenes
- txtfiles = [] 
- for file in gl.glob("*.jpeg"):
-     txtfiles.append(file)
+    txtfiles = [] 
+    for file in gl.glob("*.jpeg"):
+        txtfiles.append(file)
 
 ## Detectar rostros 
- for ix in txtfiles:
-     img = cv2.imread(ix,cv2.IMREAD_COLOR)
-     imgColor = img.copy()
-     imgTest = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    
-     faces   = facecascade.detectMultiScale(imgTest, scaleFactor=1.2, minNeighbors=5)
-    # Detectar ojos
-     for (x, y, w, h) in faces:
-        cv2.rectangle(imgColor, (x, y), (x+w, y+h), (255, 0, 255), 2)
-        roi_gray  = imgTest[y:y+h, x:x+w]
-        eyes = eye_cascade.detectMultiScale(roi_gray)
-        for (ex,ey,ew,eh) in eyes:
-            cv2.rectangle(imgColor,(ex+x,ey+y),(ex+ew+x,ey+eh+y),(255,0,255),2)
+    for ix in txtfiles:
+        img = cv2.imread(ix,cv2.IMREAD_COLOR)
+        imgColor = img.copy()
+        imgTest = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    
+        faces   = facecascade.detectMultiScale(imgTest, scaleFactor=1.2, minNeighbors=5)
+  
+        for (x, y, w, h) in faces:
+           cv2.rectangle(imgColor, (x, y), (x+w, y+h), (255, 0, 255), 2)
+           roi_gray  = imgTest[y:y+h, x:x+w]
+           eyes = eye_cascade.detectMultiScale(roi_gray)
+           for (ex,ey,ew,eh) in eyes:
+               cv2.rectangle(imgColor,(ex+x,ey+y),(ex+ew+x,ey+eh+y),(255,0,255),2)
+
 ## Visualizar resultados
-     cv2.imshow('Imagen',imgColor)
+    cv2.imshow('Imagen',imgColor)
      if cv2.waitKey(1000) & 0xFF == 27:
         break
 
