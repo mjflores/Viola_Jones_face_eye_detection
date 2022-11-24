@@ -1,4 +1,4 @@
-# OpenCv-face-detection
+# OpenCv-face-eye-detection
 
 This program is a modification of the code presented in [Implementing Face Detection using Python and OpenCV](https://medium.com/analytics-vidhya/how-to-build-a-face-detection-model-in-python-8dc9cecadfe9)
 
